@@ -249,6 +249,22 @@ export default function Home() {
           </svg>
         </div>
       </section>
+
+      <section className="bg-black text-white min-h-screen py-16 lg:py-32 px-8 relative flex flex-col justify-between gap-8">
+        <div className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%] flex flex-col gap-6 max-w-[1440px] mx-auto">
+          <h2 className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]">About Me “The Original Story”</h2>
+          <p>Once upon a time in a world filled with creativity, a curious mind named Mansi found a passion for UI/UX design. After gaining hands-on experience through real-world projects, professional roles, and academic learning, Mansi mastered the art of crafting user-centric and visually compelling digital experiences.</p>
+          <p>Now, Mansi focuses on blending aesthetics with functionality, ensuring every design is not only beautiful but also intuitive and accessible. With expertise in user research, wireframing, prototyping, and interface design, Mansi brings ideas to life using tools like Figma, Adobe XD, and Sketch.</p>
+          <p>A firm believer in the power of human-centered design, Mansi strives to create meaningful digital experiences that delight users and solve real-world problems.</p>
+        </div>
+        <div className="flex md:absolute md:bottom-0 md:left-0 w-full justify-center md:justify-between items-center gap-4">
+          <div className="flex items-center gap-4">
+            <Image src="/white-cat.png" alt="white cat" width={275} height={330} className="w-auto hidden md:block"/>
+            <p className="text-2xl md:text-5xl font-bold tracking-[-1.5%] font-rock-salt text-[#F54748]">Waiiiit who is Mansi !</p>
+          </div>
+          <Image src="/love.png" alt="love sticker" width={272} height={195} className="w-auto hidden md:block"/>
+        </div>
+      </section>
     </main>
   );
 }

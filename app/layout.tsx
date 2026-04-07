@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Fredoka, Bangers, Luckiest_Guy, Quicksand } from "next/font/google";
+import { Luckiest_Guy, Quicksand, Rock_Salt } from "next/font/google";
 import "./globals.css";
 
-const fredoka = Fredoka({
-  variable: "--font-fredoka",
+const rockSalt = Rock_Salt({
+  weight: "400",
+  variable: "--font-rock-salt",
   subsets: ["latin"],
 });
 
@@ -32,9 +33,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fredoka.variable} ${quicksand.variable} ${luckiestGuy.variable} h-full antialiased`}
+      className={`${rockSalt.variable} ${quicksand.variable} ${luckiestGuy.variable} h-full antialiased`}
     >
-      <body className="font-fredoka bg-[#fafafa] text-[#222] min-h-screen">
+      <body className="bg-[#fafafa] text-[#222] min-h-screen">
         {children}
       </body>
     </html>
