@@ -66,6 +66,17 @@ export default function Home() {
     </motion.span>
   ));
 
+  const textToChars = (text: string, variants: Variants = typewriterVariants) => text.split("").map((char, index) => (
+    <motion.span 
+      key={index} 
+      custom={index} 
+      variants={variants}
+      className="inline-block whitespace-pre"
+    >
+      {char}
+    </motion.span>
+  ));
+
   return (
     <main>
       <section className="relative min-h-screen overflow-hidden bg-white flex flex-col">
@@ -252,17 +263,164 @@ export default function Home() {
 
       <section className="bg-black text-white min-h-screen py-16 lg:py-32 px-8 relative flex flex-col justify-between gap-8">
         <div className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%] flex flex-col gap-6 max-w-[1440px] mx-auto">
-          <h2 className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]">About Me “The Original Story”</h2>
-          <p>Once upon a time in a world filled with creativity, a curious mind named Mansi found a passion for UI/UX design. After gaining hands-on experience through real-world projects, professional roles, and academic learning, Mansi mastered the art of crafting user-centric and visually compelling digital experiences.</p>
-          <p>Now, Mansi focuses on blending aesthetics with functionality, ensuring every design is not only beautiful but also intuitive and accessible. With expertise in user research, wireframing, prototyping, and interface design, Mansi brings ideas to life using tools like Figma, Adobe XD, and Sketch.</p>
-          <p>A firm believer in the power of human-centered design, Mansi strives to create meaningful digital experiences that delight users and solve real-world problems.</p>
+          <motion.h2 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]"
+          >
+            {textToWords("About Me “The Original Story”", cartoonishVariants)}
+          </motion.h2>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {textToWords("Once upon a time in a world filled with creativity, a curious mind named Mansi found a passion for UI/UX design. After gaining hands-on experience through real-world projects, professional roles, and academic learning, Mansi mastered the art of crafting user-centric and visually compelling digital experiences.", {
+              hidden: { opacity: 0 },
+              visible: (i: number) => ({
+                opacity: 1,
+                transition: { delay: i * 0.05 },
+              })
+            })}
+          </motion.p>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {textToWords("Now, Mansi focuses on blending aesthetics with functionality, ensuring every design is not only beautiful but also intuitive and accessible. With expertise in user research, wireframing, prototyping, and interface design, Mansi brings ideas to life using tools like Figma, Adobe XD, and Sketch.", {
+              hidden: { opacity: 0 },
+              visible: (i: number) => ({
+                opacity: 1,
+                transition: { delay: i * 0.05 }
+              })
+            })}
+          </motion.p>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {textToWords("A firm believer in the power of human-centered design, Mansi strives to create meaningful digital experiences that delight users and solve real-world problems.", {
+              hidden: { opacity: 0 },
+              visible: (i: number) => ({
+                opacity: 1,
+                transition: { delay: i * 0.05 }
+              })
+            })}
+          </motion.p>
         </div>
         <div className="flex md:absolute md:bottom-0 md:left-0 w-full justify-center md:justify-between items-center gap-4">
           <div className="flex items-center gap-4">
-            <Image src="/white-cat.png" alt="white cat" width={275} height={330} className="w-auto hidden md:block"/>
-            <p className="text-2xl md:text-5xl font-bold tracking-[-1.5%] font-rock-salt text-[#F54748]">Waiiiit who is Mansi !</p>
+            <div>
+              <Image src="/white-cat.png" alt="white cat" width={275} height={330} className="w-auto hidden md:block"/>
+            </div>
+            <motion.p 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="text-2xl md:text-5xl font-bold tracking-[-1.5%] font-rock-salt text-[#F54748]"
+            >
+              {textToWords("Waiiiit who is Mansi !", cartoonishVariants)}
+            </motion.p>
           </div>
-          <Image src="/love.png" alt="love sticker" width={272} height={195} className="w-auto hidden md:block"/>
+          <div>
+            <Image src="/love.png" alt="love sticker" width={272} height={195} className="w-auto hidden md:block"/>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col">
+        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32 px-4 sm:px-6 lg:px-8">
+          <motion.h2 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
+          >
+            {textToWords("SKILLS: “SUPERPOWERS UNLOCKED”", cartoonishVariants)}
+          </motion.h2>
+          <motion.p 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }}
+            className="mt-4 font-quicksand text-lg md:text-2xl tracking-[-1.5%]"
+          >
+            {textToChars("Every creative mind has its unique abilities. Here are the skills that power my design journey:", {
+              hidden: { opacity: 0 },
+              visible: (i: number) => ({
+                opacity: 1,
+                transition: { delay: i * 0.03 }
+              })
+            })}
+          </motion.p>
+        </div>
+
+        <div className="flex-1 relative mt-10 h-full w-full max-w-[1440px] mx-auto overflow-visible px-4 sm:px-6 lg:px-8">
+          {/* Green Glow */}
+          <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#CEFF48CC] rounded-full blur-[100px] md:blur-[120px] pointer-events-none z-0" />
+          
+          {/* Skills Labels */}
+          {[
+            { name: "WIREFRAMING", size: "text-xl sm:text-2xl md:text-3xl", top: "10%", left: "25%", delay: 0 },
+            { name: "ILLUSTRATOR", size: "text-xl sm:text-2xl md:text-3xl", top: "15%", left: "50%", delay: 0.2 },
+            { name: "USABILITY TESTING", size: "text-xl sm:text-3xl md:text-5xl", top: "25%", left: "75%", delay: 0.4 },
+            { name: "PROTOTYPING", size: "text-xl sm:text-2xl md:text-3xl", top: "25%", left: "15%", delay: 0.6 },
+            { name: "FIGMA", size: "text-xl sm:text-3xl md:text-5xl", top: "33%", left: "33%", delay: 0.8 },
+            { name: "VISUAL DESIGN", size: "text-xl sm:text-2xl md:text-3xl", top: "45%", left: "68%", delay: 1.0 },
+            { name: "MIRO", size: "text-sm sm:text-xl md:text-xl", top: "36%", left: "80%", delay: 1.2 },
+            { name: "PROTO.IO", size: "text-xl sm:text-2xl md:text-3xl", top: "38%", left: "18%", delay: 1.4 },
+            { name: "PHOTOSHOP", size: "text-xl sm:text-2xl md:text-3xl", top: "53%", left: "25%", delay: 1.6 },
+            { name: "OPTIMAL WORKSHOP", size: "text-sm sm:text-lg md:text-xl", top: "45%", left: "42%", delay: 1.8 },
+            { name: "BRANDING & IDENTITY DESIGN", size: "text-xs sm:text-xl md:text-3xl", top: "58%", left: "75%", delay: 2.0 },
+            { name: "USER RESEARCH", size: "text-xl sm:text-3xl md:text-5xl", top: "68%", left: "20%", delay: 2.2 },
+            { name: "SKETCH", size: "text-sm sm:text-lg md:text-xl", top: "60%", left: "38%", delay: 2.4 },
+            { name: "INDESIGN", size: "text-xl sm:text-2xl md:text-3xl", top: "71%", left: "75%", delay: 2.6 },
+            { name: "GRAPHIC DESIGN", size: "text-xl sm:text-2xl md:text-3xl", top: "80%", left: "35%", delay: 2.8 },
+            { name: "PROBLEM-SOLVING", size: "text-xl sm:text-2xl md:text-3xl", top: "92%", left: "18%", delay: 3.0 },
+            { name: "DESIGN THINKING", size: "text-xl sm:text-3xl md:text-5xl", top: "86%", left: "75%", delay: 3.2 },
+          ].map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0, rotate: -25 }}
+              whileInView={{ 
+                opacity: 1, 
+                scale: 1, 
+                rotate: 0,
+                transition: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 12,
+                  delay: skill.delay
+                }
+              }}
+              animate={{ 
+                y: [0, -5, 0],
+                rotate: [0, 5, -5, 0],
+                scaleX: [1, 1.1, 0.9, 1],
+                scaleY: [1, 0.85, 1.1, 1],
+              }}
+              transition={{ 
+                duration: 2.5 + (index % 2),
+                repeat: Infinity,
+                ease: "easeInOut",
+                repeatDelay: (index % 3) * 0.5
+              }}
+              whileHover={{ 
+                scale: 1.25, 
+                // rotate: [0, 15, -15, 0],
+                transition: { duration: 0.2, ease: "easeInOut" }
+              }}
+              className={`absolute font-luckiest-guy pointer-events-auto cursor-default select-none text-center whitespace-nowrap transform -translate-x-1/2 -translate-y-1/2 z-10 ${skill.size}`}
+              style={{ top: skill.top, left: skill.left }}
+            >
+              {skill.name}
+            </motion.div>
+          ))}
+
+          {/* Character and Speech Bubble */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/3 w-full max-w-sm flex justify-center z-20">
+            <div
+              className="relative flex justify-center items-end"
+            >
+              <Image
+                src="/alien.png"
+                alt="Character"
+                width={250}
+                height={550}
+                className="object-contain w-auto h-[40vh] md:h-auto"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </main>
