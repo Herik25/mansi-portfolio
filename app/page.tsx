@@ -30,6 +30,30 @@ export default function Home() {
     }),
   };
 
+  const cartoonishItem: Variants = {
+    hidden: { opacity: 0, scale: 0, rotate: -20, y: 20 },
+    visible: { 
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 15
+      },
+    },
+  };
+
+  const fadeInItem: Variants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.3 }
+    }
+  };
+
   const draw: Variants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: (i: number) => {
@@ -262,61 +286,70 @@ export default function Home() {
       </section>
 
       <section className="bg-black text-white min-h-screen py-16 lg:py-32 px-8 relative flex flex-col justify-between gap-8">
-        <div className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%] flex flex-col gap-6 max-w-[1440px] mx-auto">
-          <motion.h2 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }} 
-            className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]"
-          >
-            {textToWords("About Me “The Original Story”", cartoonishVariants)}
-          </motion.h2>
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            {textToWords("Once upon a time in a world filled with creativity, a curious mind named Mansi found a passion for UI/UX design. After gaining hands-on experience through real-world projects, professional roles, and academic learning, Mansi mastered the art of crafting user-centric and visually compelling digital experiences.", {
-              hidden: { opacity: 0 },
-              visible: (i: number) => ({
-                opacity: 1,
-                transition: { delay: i * 0.05 },
-              })
-            })}
-          </motion.p>
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            {textToWords("Now, Mansi focuses on blending aesthetics with functionality, ensuring every design is not only beautiful but also intuitive and accessible. With expertise in user research, wireframing, prototyping, and interface design, Mansi brings ideas to life using tools like Figma, Adobe XD, and Sketch.", {
-              hidden: { opacity: 0 },
-              visible: (i: number) => ({
-                opacity: 1,
-                transition: { delay: i * 0.05 }
-              })
-            })}
-          </motion.p>
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            {textToWords("A firm believer in the power of human-centered design, Mansi strives to create meaningful digital experiences that delight users and solve real-world problems.", {
-              hidden: { opacity: 0 },
-              visible: (i: number) => ({
-                opacity: 1,
-                transition: { delay: i * 0.05 }
-              })
-            })}
-          </motion.p>
-        </div>
-        <div className="flex md:absolute md:bottom-0 md:left-0 w-full justify-center md:justify-between items-center gap-4">
-          <div className="flex items-center gap-4">
-            <div>
-              <Image src="/white-cat.png" alt="white cat" width={275} height={330} className="w-auto hidden md:block"/>
-            </div>
-            <motion.p 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="text-2xl md:text-5xl font-bold tracking-[-1.5%] font-rock-salt text-[#F54748]"
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.8 } }
+          }}
+          className="flex flex-col flex-1 justify-between gap-8 h-full"
+        >
+          <div className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%] flex flex-col gap-6 max-w-[1440px] mx-auto w-full">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.1 } 
+                } 
+              }}
+              className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]"
             >
-              {textToWords("Waiiiit who is Mansi !", cartoonishVariants)}
-            </motion.p>
+              {textToWords("About Me “The Original Story”", cartoonishItem)}
+            </motion.h2>
+            
+            <motion.div 
+              variants={{ 
+                visible: { transition: { staggerChildren: 0.6 } } 
+              }}
+              className="flex flex-col gap-6"
+            >
+              <motion.p variants={{ visible: { transition: { staggerChildren: 0.01 } } }}>
+                {textToWords("Once upon a time in a world filled with creativity, a curious mind named Mansi found a passion for UI/UX design. After gaining hands-on experience through real-world projects, professional roles, and academic learning, Mansi mastered the art of crafting user-centric and visually compelling digital experiences.", fadeInItem)}
+              </motion.p>
+              <motion.p variants={{ visible: { transition: { staggerChildren: 0.01 } } }}>
+                {textToWords("Now, Mansi focuses on blending aesthetics with functionality, ensuring every design is not only beautiful but also intuitive and accessible. With expertise in user research, wireframing, prototyping, and interface design, Mansi brings ideas to life using tools like Figma, Adobe XD, and Sketch.", fadeInItem)}
+              </motion.p>
+              <motion.p variants={{ visible: { transition: { staggerChildren: 0.01 } } }}>
+                {textToWords("A firm believer in the power of human-centered design, Mansi strives to create meaningful digital experiences that delight users and solve real-world problems.", fadeInItem)}
+              </motion.p>
+            </motion.div>
           </div>
-          <div>
-            <Image src="/love.png" alt="love sticker" width={272} height={195} className="w-auto hidden md:block"/>
-          </div>
-        </div>
+
+          <motion.div 
+            variants={{ 
+              visible: { transition: { staggerChildren: 0.5 } } 
+            }}
+            className="flex md:absolute md:bottom-0 md:left-0 w-full justify-center md:justify-between items-center gap-4 py-8 md:py-0"
+          >
+            <div className="flex items-center gap-4">
+              <div>
+                <Image src="/white-cat.png" alt="white cat" width={275} height={330} className="w-auto hidden md:block" />
+              </div>
+              <motion.p
+                variants={{ visible: { transition: { staggerChildren: 0.25 } } }}
+                className="text-2xl md:text-5xl font-bold tracking-[-1.5%] font-rock-salt text-[#F54748]"
+              >
+                {textToWords("Waiiiit who is Mansi !", cartoonishItem)}
+              </motion.p>
+            </div>
+            <div>
+              <Image src="/love.png" alt="love sticker" width={272} height={195} className="w-auto hidden md:block" />
+            </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col">
@@ -372,6 +405,7 @@ export default function Home() {
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0, rotate: -25 }}
+              viewport={{ once: true }}
               whileInView={{ 
                 opacity: 1, 
                 scale: 1, 
