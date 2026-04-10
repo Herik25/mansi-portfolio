@@ -352,7 +352,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col">
+      <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col px-4 md:px-8">
         <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32">
           <motion.h2 
             initial="hidden" 
@@ -458,7 +458,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="bg-[#FDC55E] text-black min-h-screen relative overflow-hidden flex flex-col py-16 md:py-32 px-4 md:px-8">
+      <section className="bg-[#FDC55E] text-black relative overflow-hidden flex flex-col py-16 md:py-32 px-4 md:px-8">
         <div className="max-w-[1440px] mx-auto w-full relative z-20">
           <motion.h2 
             initial="hidden" 
@@ -545,24 +545,19 @@ export default function Home() {
               >
                 <div className="relative w-fit max-w-[calc(100vw-3rem)] md:max-w-full">
                   <div className={`${exp.color} border-2 border-black rounded-full px-5 py-3 md:px-10 md:py-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all group-hover:scale-105 group-hover:-translate-y-1 duration-300`}>
-                    <h3 className="text-sm sm:text-base md:text-2xl font-rock-salt leading-tight break-words">
+                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-rock-salt leading-tight wrap-break-word">
                       {exp.title}
                     </h3>
                   </div>
                 </div>
                 
-                <p className="text-[10px] sm:text-xs md:text-xl font-quicksand font-bold ml-6 md:ml-10">{exp.date}</p>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-quicksand font-bold ml-6 md:ml-10">{exp.date}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        <motion.div 
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="absolute bottom-0 left-0 w-[150px] md:w-[300px] z-20 pointer-events-none"
-        >
+        <div className="absolute bottom-0 left-0 w-[150px] md:w-[300px] z-0 pointer-events-none">
           <Image 
             src="/squid.png" 
             alt="Squidward" 
@@ -570,14 +565,9 @@ export default function Home() {
             height={400} 
             className="object-contain"
           />
-        </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="absolute top-[20%] -right-[7%] w-[150px] -rotate-45 md:w-[350px] z-0 pointer-events-none"
-        >
+        <div className="absolute top-[20%] -right-[7%] w-[150px] -rotate-45 md:w-[350px] z-0 pointer-events-none">
           <Image 
             src="/spongebob.png" 
             alt="SpongeBob" 
@@ -585,7 +575,7 @@ export default function Home() {
             height={450} 
             className="object-contain"
           />
-        </motion.div>
+        </div>
 
         <div className="absolute inset-0 pointer-events-none z-0 opacity-10">
           <svg width="100%" height="100%">
