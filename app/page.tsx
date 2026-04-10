@@ -353,7 +353,7 @@ export default function Home() {
       </section>
 
       <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col">
-        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32">
           <motion.h2 
             initial="hidden" 
             whileInView="visible" 
@@ -378,7 +378,7 @@ export default function Home() {
           </motion.p>
         </div>
 
-        <div className="flex-1 relative mt-10 h-full w-full max-w-[1440px] mx-auto overflow-visible px-4 sm:px-6 lg:px-8">
+        <div className="flex-1 relative mt-10 h-full w-full max-w-[1440px] mx-auto overflow-visible">
           {/* Green Glow */}
           <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#CEFF48CC] rounded-full blur-[100px] md:blur-[120px] pointer-events-none z-0" />
           
@@ -457,8 +457,144 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section>
-        new section
+      
+      <section className="bg-[#FDC55E] text-black min-h-screen relative overflow-hidden flex flex-col py-16 md:py-32 px-4 md:px-8">
+        <div className="max-w-[1440px] mx-auto w-full relative z-20">
+          <motion.h2 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
+          >
+            {textToWords("Experience: “The Quest Begins”", cartoonishVariants)}
+          </motion.h2>
+          <motion.p 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }}
+            className="mt-4 font-quicksand text-lg md:text-2xl tracking-[-1.5%] max-w-3xl"
+          >
+            {textToChars("Every journey is shaped by experiences that refine skills and creativity. Here’s how my path in UI/UX and design has evolved", {
+              hidden: { opacity: 0 },
+              visible: (i: number) => ({
+                opacity: 1,
+                transition: { delay: i * 0.03 }
+              })
+            })}
+          </motion.p>
+        </div>
+
+        <div className="flex-1 relative mt-12 md:mt-20 w-full max-w-[1440px] mx-auto z-10 px-4">
+          <div className="flex flex-col gap-6 md:gap-12">
+            {[
+              {
+                title: "Academic Design Faculty – Collegedekho, Delhi",
+                date: "Apr 2025- Current",
+                color: "bg-[#EC7082]",
+                marginClass: "ml-0",
+                rotate: -1
+              },
+              {
+                title: "Visiting Faculty – IIID Rajkot",
+                date: "Nov 2024- March 2025",
+                color: "bg-[#E4E7EC]",
+                marginClass: "ml-2 md:ml-[10%]",
+                rotate: 1
+              },
+              {
+                title: "UI/UX Designer – Coretus Technologies, Rajkot",
+                date: "Feb 2024 - Feb 2025",
+                color: "bg-[#C77CFF]",
+                marginClass: "ml-4 md:ml-[20%]",
+                rotate: -1
+              },
+              {
+                title: "UI Designer Intern – AP Ads, Rajkot",
+                date: "Dec 2023 - Feb 2024",
+                color: "bg-[#88D398]",
+                marginClass: "ml-6 md:ml-[30%]",
+                rotate: 1
+              },
+              {
+                title: "Jr. Graphic Designer – ASEPL, Ahmedabad",
+                date: "September 2021 - Jan 2023",
+                color: "bg-[#5483E4]",
+                marginClass: "ml-8 md:ml-[40%]",
+                rotate: -1
+              }
+            ].map((exp, index, arr) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50, x: -20 }}
+                whileInView={{ 
+                  opacity: 1, 
+                  y: 0,
+                  x: 0,
+                  transition: { 
+                    delay: (arr.length - index - 1) * 0.15,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20
+                  } 
+                }}
+                viewport={{ once: true, amount: 0.1 }}
+                style={{ 
+                  rotate: `${exp.rotate}deg`
+                }}
+                className={`flex flex-col gap-1 w-full max-w-full md:w-fit relative group z-10 ${exp.marginClass}`}
+              >
+                <div className="relative w-fit max-w-[calc(100vw-3rem)] md:max-w-full">
+                  <div className={`${exp.color} border-2 border-black rounded-full px-5 py-3 md:px-10 md:py-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all group-hover:scale-105 group-hover:-translate-y-1 duration-300`}>
+                    <h3 className="text-sm sm:text-base md:text-2xl font-rock-salt leading-tight break-words">
+                      {exp.title}
+                    </h3>
+                  </div>
+                </div>
+                
+                <p className="text-[10px] sm:text-xs md:text-xl font-quicksand font-bold ml-6 md:ml-10">{exp.date}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div 
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="absolute bottom-0 left-0 w-[150px] md:w-[300px] z-20 pointer-events-none"
+        >
+          <Image 
+            src="/squid.png" 
+            alt="Squidward" 
+            width={300} 
+            height={400} 
+            className="object-contain"
+          />
+        </motion.div>
+
+        <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="absolute top-[20%] -right-[7%] w-[150px] -rotate-45 md:w-[350px] z-0 pointer-events-none"
+        >
+          <Image 
+            src="/spongebob.png" 
+            alt="SpongeBob" 
+            width={350} 
+            height={450} 
+            className="object-contain"
+          />
+        </motion.div>
+
+        <div className="absolute inset-0 pointer-events-none z-0 opacity-10">
+          <svg width="100%" height="100%">
+            <pattern id="dots-exp" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="black" />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#dots-exp)" />
+          </svg>
+        </div>
       </section>
     </main>
   );
