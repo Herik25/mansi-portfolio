@@ -586,6 +586,49 @@ export default function Home() {
           </svg>
         </div>
       </section>
+
+      <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col px-4 md:px-8">
+        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32 grid grid-cols-[1fr_auto] gap-10">
+          <div>
+            <motion.h2 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
+            >
+              {textToWords(`Research & Projects: "The Discovery Chronicles"`, cartoonishVariants)}
+            </motion.h2>
+            <motion.p 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true }}
+              className="mt-4 font-quicksand text-lg md:text-2xl tracking-[-1.5%]"
+            >
+              {textToChars("Every designer’s journey is a mix of curiosity, creativity… and a little bit of Netflix & chill As someone who loves diving into stories on Netflix, I naturally developed an eye for experiences—how they flow, engage, and keep users hooked. That same curiosity translated into my design journey, where every project became an episode of exploration. From understanding user behavior to crafting seamless digital experiences, these research studies and projects shaped my perspective on UI/UX—teaching me how to design journeys that people don’t just use, but truly enjoy.", {
+                hidden: { opacity: 0 },
+                visible: (i: number) => ({
+                  opacity: 1,
+                  transition: { delay: i * 0.03 }
+                })
+              })}
+            </motion.p>
+          </div>
+          <Image 
+            src="/popcorn.svg" 
+            alt="Popcorn" 
+            width={188} 
+            height={188} 
+            className="object-contain"
+          />
+          <Image
+            src="/Netflix.png"
+            alt="Netflix"
+            width={188}
+            height={188}
+            className="z-0 w-full max-w-3xl mx-auto h-full opacity-60 absolute inset-0 translate-y-[150%] max-h-[50%]"
+          />
+        </div>
+      </section>
     </main>
   );
 }
