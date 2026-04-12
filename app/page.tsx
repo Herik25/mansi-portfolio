@@ -686,7 +686,7 @@ export default function Home() {
             alt="Popcorn" 
             width={188} 
             height={188} 
-            className="object-contain absolute md:relative bottom-0 right-0 translate-y-1/2 -z-1 opacity-20 md:opacity-100"
+            className="object-contain absolute md:relative bottom-0 right-0 translate-y-1/2 md:translate-y-0 -z-1 opacity-20 md:opacity-100"
           />
           <Image
             src="/Netflix.png"
