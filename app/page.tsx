@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Home() {
   const typewriterVariants: Variants = {
@@ -100,6 +101,73 @@ export default function Home() {
       {char}
     </motion.span>
   ));
+
+  const projects = [
+    { 
+      title: "SNEAKART", 
+      subtitle: "ULTIMATE AR SHOPPING",
+      category: "Fashion • AR Experience • Shopping",
+      year: "2026",
+      platform: "Mobile App",
+      experience: "AR + AI Powered",
+      description: "Step into the future of footwear shopping with Sneakart. An immersive AR-based shoe shopping experience where users can virtually try on sneakers in real-time, explore collections in 3D, and make confident purchase decisions from anywhere.",
+      image: "/projects/netflix-sub-1.png",
+      rating: 4
+    },
+    { 
+      title: "Accessible Social Media", 
+      category: "Social • Accessibility • UI/UX",
+      year: "2025",
+      platform: "Web & Mobile",
+      experience: "Inclusive Design",
+      description: "A social media platform designed from the ground up to be fully accessible for users with visual, auditory, and motor impairments, implementing advanced assistive technologies.",
+      image: "/projects/netfilx-sub-2.png",
+      rating: 5
+    },
+    { 
+      title: "Imitation Jewelry Journey", 
+      category: "E-commerce • Branding • Storytelling",
+      year: "2024",
+      platform: "Web App",
+      experience: "Immersive Retail",
+      description: "Experience the craft and elegance of jewelry through an interactive storytelling platform that blends high-end e-commerce with a documentary-style narrative journey.",
+      image: "/projects/netflix-sub-3.png",
+      rating: 4
+    },
+    { 
+      title: "SehatSaathi", 
+      category: "Healthcare • AI • Wellness",
+      year: "2025",
+      platform: "Mobile App",
+      experience: "AI Health Assistant",
+      description: "Your digital health companion that uses personalized AI models to track wellness metrics, suggest dietary plans, and connect users with healthcare professionals seamlessly.",
+      image: "/projects/netflix-sub-4.png",
+      rating: 5
+    },
+    { 
+      title: "Manufacturer SaaS", 
+      category: "B2B • SaaS • Dashboard",
+      year: "2024",
+      platform: "Enterprise Web",
+      experience: "Industrial Tech",
+      description: "A comprehensive SaaS solution for manufacturers to optimize supply chains, track production metrics in real-time, and manage workforce productivity effectively.",
+      image: "/projects/netfilx-sub-5.png",
+      rating: 4
+    },
+    { 
+      title: "Supply Chain Pro", 
+      category: "Logistics • SaaS • Automation",
+      year: "2023",
+      platform: "Web Dashboard",
+      experience: "Corporate Tools",
+      description: "Advanced logistics management software focusing on predictive analytics and automated shipping route optimization for global shipping companies.",
+      image: "/projects/netflix-sub-6.png",
+      rating: 4
+    },
+  ];
+
+  const [activeProjectIdx, setActiveProjectIdx] = useState(0);
+  const currentProject = projects[activeProjectIdx];
 
   return (
     <main>
@@ -587,8 +655,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col px-4 md:px-8">
-        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32 grid grid-cols-[1fr_auto] gap-10">
+      <section className="bg-black text-white relative overflow-hidden flex flex-col px-4 md:px-8 pb-40">
+        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32 md:grid md:grid-cols-[1fr_auto] gap-10">
           <div>
             <motion.h2 
               initial="hidden" 
@@ -618,15 +686,120 @@ export default function Home() {
             alt="Popcorn" 
             width={188} 
             height={188} 
-            className="object-contain"
+            className="object-contain absolute md:relative bottom-0 right-0 translate-y-1/2 -z-1 opacity-20 md:opacity-100"
           />
           <Image
             src="/Netflix.png"
             alt="Netflix"
             width={188}
             height={188}
-            className="z-0 w-full max-w-3xl mx-auto h-full opacity-60 absolute inset-0 translate-y-[150%] max-h-[50%]"
+            className="z-0 w-full max-w-[40vw] lg:max-w-lg xl:max-w-xl mx-auto h-full opacity-60 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 max-h-[20%] lg:max-h-[40%]"
           />
+        </div>
+      </section>
+
+      <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col py-16">
+        <div className="absolute inset-0 z-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeProjectIdx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0"
+            >
+              <Image 
+                src={currentProject.image} 
+                alt={currentProject.title} 
+                fill
+                className="object-cover opacity-40 grayscale-20"
+              />
+            </motion.div>
+          </AnimatePresence>
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/40 to-transparent" />
+        </div>
+
+        <div className="flex-1 flex flex-col justify-end px-4 md:px-16 relative z-10 max-w-[1440px] mx-auto w-full">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={activeProjectIdx + "-content"}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="max-w-3xl mb-12"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-base md:text-xl lg:text-[32px] font-bold text-gray-300">
+                  {currentProject.category}
+                </span>
+              </div>
+
+              <h2 className="text-5xl md:text-[64px] font-black mb-4 tracking-[5.5%] uppercase drop-shadow-2xl">
+                {currentProject.title}
+              </h2>
+
+              <div className="flex flex-wrap items-center gap-4 mb-6 text-sm md:text-xl font-bold">
+                <span className="text-white">{currentProject.year}</span>
+                <span className="px-2 md:text-base">PLATFORM: {currentProject.platform}</span>
+                <span className="text-white font-medium">Experience: {currentProject.experience}</span>
+              </div>
+
+              <p className="text-lg md:text-xl text-[#A7A6A6] leading-relaxed mb-4 max-w-2xl drop-shadow-md">
+                {currentProject.description}
+              </p>
+
+              <Image src="/stars.svg" alt="stars" width={212} height={34} className="mb-6" />
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-[#D40D1F] hover:bg-red-700 text-white px-8 py-2 rounded-[10px] flex items-center justify-center gap-2 font-bold text-lg transition-transform active:scale-95 group cursor-pointer shadow-lg shadow-red-900/20 min-w-68">
+                  SCAN NOW
+                  <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 text-[#D40D1F] fill-current ml-0.5" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </button>
+                <button className="bg-transparent hover:bg-white/10 text-white border border-white px-8 py-2 rounded-[10px] font-bold text-lg transition-all active:scale-95 backdrop-blur-md cursor-pointer min-w-68">
+                  START SHOPPING
+                </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="w-full">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 px-2">Matched to You</h3>
+            <div className="flex gap-4 overflow-x-auto py-12 px-2 no-scrollbar snap-x snap-mandatory -my-12">
+              {projects.map((project, idx) => (
+                <motion.div 
+                  key={idx}
+                  onClick={() => setActiveProjectIdx(idx)}
+                  whileHover={{ 
+                    scale: 1.025, 
+                    zIndex: 50,
+                    transition: { duration: 0.3 }
+                  }}
+                  className={`relative shrink-0 w-64 md:w-80 aspect-video rounded-lg overflow-hidden cursor-pointer group shadow-2xl snap-start`}
+                >
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    fill
+                    className="object-cover transition-transform duration-700"
+                  />
+                  <div className={`absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors ${activeProjectIdx === idx ? 'bg-black/0' : ''}`} />
+                  
+                  <div className="absolute inset-0 p-3 flex flex-col justify-end">
+                    <h4 className="text-sm font-bold text-white drop-shadow-md line-clamp-2">
+                       {project.title}
+                    </h4>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </main>
