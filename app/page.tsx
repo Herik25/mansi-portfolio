@@ -882,6 +882,92 @@ export default function Home() {
           Mobile mockups
         </div>
       </section>
+
+      <section className="bg-black text-white pt-16 md:pt-32 relative overflow-hidden flex flex-col items-center">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.8 } }
+          }}
+          className="max-w-[1440px] w-full px-4 md:px-8 relative z-10"
+        >
+          <div className="flex flex-col gap-6 mb-16">
+            <motion.h3 
+              variants={fadeInItem}
+              className="text-3xl md:text-5xl font-quicksand font-bold tracking-tight"
+            >
+              {textToWords("Leobrain - SaaS ATS Platform", fadeInItem)}
+            </motion.h3>
+            <motion.p 
+              variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+              className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 max-w-6xl leading-relaxed"
+            >
+              {textToWords("Leobrain is an AI-driven SaaS platform designed to streamline the hiring and recruitment process with an advanced Applicant Tracking System (ATS) and additional business solutions. The platform helps recruiters, HR teams, and businesses automate hiring, enhance decision-making, and improve efficiency.", fadeInItem)}
+            </motion.p>
+          </div>
+
+          <motion.div 
+            variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6"
+          >
+            {[...Array(8)].map((_, i) => (
+              <motion.div 
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 30, scale: 0.95 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: { type: "spring", stiffness: 100, damping: 20 }
+                  }
+                }}
+                className="aspect-video bg-[#1a1a1a] rounded-xl border border-white/5 overflow-hidden shadow-2xl relative group hover:border-white/20 transition-colors"
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              >
+                <div className="w-full h-full flex items-center justify-center text-white/10 font-black text-xl tracking-widest uppercase">
+                  Screenshot {i + 1}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+        </motion.div>
+        <div className="flex justify-between items-end w-full">
+          <motion.div 
+            initial={{ x: -150, opacity: 0, rotate: -15 }}
+            whileInView={{ x: 0, opacity: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 50, damping: 15 }}
+            className="w-48 md:w-80 lg:w-[300px] aspect-square relative"
+          >
+            <Image 
+              src="/tom.png" 
+              alt="Tom" 
+              width={300} 
+              height={300} 
+              className="w-full h-full"
+            />
+          </motion.div>
+          <motion.div 
+            initial={{ x: 150, opacity: 0, rotate: 15 }}
+            whileInView={{ x: 0, opacity: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 50, damping: 15, delay: 0.2 }}
+            className="w-48 md:w-80 lg:w-[300px] aspect-square relative"
+          >
+            <Image 
+              src="/jerry.png" 
+              alt="Jerry" 
+              width={300} 
+              height={300} 
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
+        </div>
+      </section>
     </main>
   );
 }
