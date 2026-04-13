@@ -1015,7 +1015,7 @@ export default function Home() {
           className="max-w-[1440px] mx-auto w-full relative z-10"
         >
           <div className="grid grid-cols-1 xl:grid-cols-[1fr_550px] gap-4 items-end">
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8 pb-16 sm:pb-0">
               <motion.h2 
                 variants={{ 
                   hidden: { opacity: 0, y: 20 },
@@ -1090,6 +1090,90 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
+      </section>
+
+      <section className="bg-transparent text-black relative overflow-hidden flex flex-col pt-16 md:pt-32 px-4 md:px-8 max-w-[1440px] md:mx-auto">
+        <div className="max-w-[1440px] mx-auto w-full relative z-20">
+          <motion.h2 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
+          >
+            {textToWords("Teaching Impact", cartoonishVariants)}
+          </motion.h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-[70%_1fr] gap-4">
+          <div className="relative mt-6 w-full z-10 px-4">
+            <div className="flex flex-col gap-6 md:gap-12">
+              {[
+                {
+                  title: "100+ Students Mentored",
+                  color: "bg-[#E4E7EC]",
+                },
+                {
+                  title: "50+ Design Projects Guided",
+                  color: "bg-[#C77CFF]",
+                },
+                {
+                  title: "7+ Semesters of Teaching Experience",
+                  color: "bg-[#88D398]",
+                },
+                {
+                  title: "UX, UI, Branding & Research Mentorship",
+                  color: "bg-[#EC7082]",
+                  rotate: 1
+                }
+              ].map((exp, index, arr) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50, x: -20 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0,
+                    x: 0,
+                    transition: { 
+                      delay: (arr.length - index - 1) * 0.15,
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 20
+                    } 
+                  }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  style={{ 
+                    rotate: `${exp.rotate}deg`
+                  }}
+                  className={`flex flex-col gap-1 w-full max-w-full md:w-fit relative group z-10`}
+                >
+                  <div className="relative w-fit max-w-[calc(100vw-3rem)] md:max-w-full">
+                    <div className={`${exp.color} border-2 border-black rounded-full px-5 py-3 md:px-10 md:py-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all group-hover:scale-105 group-hover:-translate-y-1 duration-300`}>
+                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-rock-salt leading-tight wrap-break-word">
+                        {exp.title}
+                      </h3>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div 
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              className="w-48 md:w-80 lg:w-96 xl:w-120 aspect-square flex items-center justify-center z-20"
+            >
+              <Image src="/wooden-car.png" alt="wooden car" width={500} height={500} />
+            </motion.div>
+          </div>
+          <motion.div 
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="absolute right-0 bottom-0 hidden sm:flex items-center justify-center z-1 xl:h-full"
+          >
+            <Image src="/joker-1.png" alt="joker" width={420} height={700} className="md:w-full w-64 h-auto md:h-full object-contain" />
+          </motion.div>
+        </div>
       </section>
     </main>
   );
