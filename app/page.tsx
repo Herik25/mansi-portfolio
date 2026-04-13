@@ -166,6 +166,41 @@ export default function Home() {
     },
   ];
 
+  const cartoons = [
+    {
+      img: "/cartoons/cartoon-1.png",
+      alt: "cartoon 1"
+    },
+    {
+      img: "/cartoons/cartoon-2.png",
+      alt: "cartoon 2"
+    },
+    {
+      img: "/cartoons/cartoon-3.png",
+      alt: "cartoon 3"
+    },
+    {
+      img: "/cartoons/cartoon-4.png",
+      alt: "cartoon 4"
+    },
+    {
+      img: "/cartoons/cartoon-5.png",
+      alt: "cartoon 5"
+    },
+    {
+      img: "/cartoons/cartoon-6.png",
+      alt: "cartoon 6"
+    },
+    {
+      img: "/cartoons/cartoon-7.png",
+      alt: "cartoon 7"
+    },
+    {
+      img: "/cartoons/cartoon-8.png",
+      alt: "cartoon 8"
+    }
+  ]
+
   const [activeProjectIdx, setActiveProjectIdx] = useState(0);
   const currentProject = projects[activeProjectIdx];
 
@@ -967,6 +1002,94 @@ export default function Home() {
             />
           </motion.div>
         </div>
+      </section>
+
+      <section className="bg-[#0e0e0e] text-white pt-16 md:pt-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.8 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10"
+        >
+          <div className="grid grid-cols-1 xl:grid-cols-[1fr_550px] gap-4 items-end">
+            <div className="flex flex-col gap-8">
+              <motion.h2 
+                variants={{ 
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { staggerChildren: 0.1 } 
+                  } 
+                }}
+                className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]"
+              >
+                {textToWords("Designing Designers", cartoonishItem)}
+              </motion.h2>
+              
+              <motion.div 
+                variants={{ 
+                  visible: { transition: { staggerChildren: 0.6 } } 
+                }}
+                className="flex flex-col gap-6"
+              >
+                <motion.p 
+                  variants={{ visible: { transition: { staggerChildren: 0.01 } } }}
+                  className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%]"
+                >
+                  {textToWords("Once upon a time in a world filled with creativity and curiosity, Mansi discovered that designing experiences was only half the journey—the other half was inspiring others to design. Alongside practicing UX design, Mansi began guiding aspiring designers to understand the foundations of user-centered thinking, digital interfaces, and visual communication.Through interactive classes, hands-on projects, and thoughtful discussions, Mansi mentors students through the entire design process—from research and ideation to prototyping and testing—encouraging them to think deeply about user behavior and real-world problems.", fadeInItem)}
+                </motion.p>
+                <motion.p 
+                  variants={{ visible: { transition: { staggerChildren: 0.01 } } }}
+                  className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%]"
+                >
+                  {textToWords("Today, Mansi focuses on nurturing creativity, confidence, and critical thinking in young designers, helping them transform ideas into meaningful digital experiences. For Mansi, teaching is more than sharing knowledge—it is about designing designers and shaping the next generation of thoughtful creators. 🎓", fadeInItem)}
+                </motion.p>
+              </motion.div>
+
+              {/* Bean Row */}
+              <motion.div 
+                variants={{ 
+                  visible: { transition: { staggerChildren: 0.5 } } 
+                }}
+                className="flex-wrap gap-6 mt-6 hidden sm:flex"
+              >
+                {cartoons.map((cartoon, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeInItem}
+                    whileHover={{ 
+                      y: -10,
+                      scale: 1.1,
+                      transition: { type: "spring", stiffness: 300 }
+                    }}
+                    className="w-12 h-20 md:w-16 md:h-24 flex items-end justify-center cursor-default"
+                  >
+                    <Image src={cartoon.img} alt={cartoon.alt} width={90} height={140} className="w-full h-auto object-contain relative z-10" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            <motion.div 
+              variants={fadeInItem}
+              className="absolute right-0 bottom-0 -z-1 xl:relative flex justify-center items-end"
+            >
+              <div className="relative group">
+                <Image 
+                  src="/teacher.png" 
+                  alt="Mansi Designing Designers" 
+                  width={600} 
+                  height={800} 
+                  className="w-full h-auto object-contain relative z-10 opacity-40 xl:opacity-100"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </section>
     </main>
   );
