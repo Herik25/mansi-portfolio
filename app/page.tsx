@@ -776,6 +776,112 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="bg-black text-white pt-16 md:pt-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.8 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_500px] gap-12 items-start">
+            <div className="flex flex-col gap-6">
+              <motion.h2 
+                variants={{ 
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { staggerChildren: 0.1 } 
+                  } 
+                }}
+                className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]"
+              >
+                {textToWords("PROFESSIONAL PROJECTS: \"DESIGN IN ACTION\"", cartoonishVariants)}
+              </motion.h2>
+              
+              <motion.div 
+                variants={{ visible: { transition: { staggerChildren: 0.6 } } }}
+                className="flex flex-col gap-4 max-w-3xl"
+              >
+                <motion.p 
+                  variants={{ visible: { transition: { staggerChildren: 0.01 } } }}
+                  className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%]"
+                >
+                  {textToWords("Every designer embarks on a journey of exploration. Here are the research studies and projects that", fadeInItem)}
+                </motion.p>
+                <motion.p 
+                  variants={{ visible: { transition: { staggerChildren: 0.01 } } }}
+                  className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%]"
+                >
+                  {textToWords("Bringing ideas to life through innovative and user-centric designs, shaping seamless digital experiences during my UI/UX journey.", fadeInItem)}
+                </motion.p>
+              </motion.div>
+
+              <motion.div 
+                variants={{ visible: { transition: { staggerChildren: 0.6 } } }}
+                className="mt-8 flex flex-col gap-6"
+              >
+                <motion.h3 
+                  variants={fadeInItem}
+                  className="text-3xl md:text-4xl font-quicksand font-bold tracking-tight"
+                >
+                  {textToWords("Eat - Your AI Food & Drink Assistant", fadeInItem)}
+                </motion.h3>
+                <motion.p 
+                  variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                  className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%]"
+                >
+                  {textToWords("Eat is an AI-driven food application is designed to enhance every aspect of your culinary journey. It features Fridge Bar Scanning to track ingredients, Nutrition Analysis for healthier choices, and an advanced Drink Feature that offers cocktail-making guides and wine shopping recommendations. Users can enjoy seamless grocery shopping through integrated platforms like Instamart and Amazon Fresh, as well as effortless restaurant reservations via OpenTable.", fadeInItem)}
+                </motion.p>
+              </motion.div>
+            </div>
+
+            <motion.div 
+              variants={fadeInItem}
+              className="absolute top-0 right-0 lg:relative flex justify-end h-[400px] -z-1 translate-x-1/3 -translate-y-1/3 lg:translate-x-0 lg:translate-y-0"
+            >
+              {/* Avatar Ring */}
+              <div className="relative w-64 h-64">
+                <div className="absolute inset-0 opacity-50 lg:opacity-100 bg-[#A0C4FF] rounded-full p-2 border-4 border-white/20"></div>
+              </div>
+            </motion.div>
+          </div>
+          <motion.div 
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="w-48 md:w-80 aspect-square flex items-center justify-center z-20"
+          >
+            <Image src="/crab.png" alt="crab" width={344} height={344} />
+          </motion.div>
+        </motion.div>
+        <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          className="absolute bottom-0 right-0 z-0 hidden md:block"
+        >
+          <Image src="/mockups/main-phone.png" alt="phone" width={400} height={800} className="xl:h-full xl:w-full" />
+        </motion.div>
+      </section>
+
+      <section className="bg-[#0e0e0e] text-white px-4 md:px-8 relative overflow-x-hidden min-h-screen flex flex-col items-center">
+        <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          className="absolute top-0 right-0 z-0 hidden md:block"
+        >
+          <Image src="/mockups/main-phone-2.png" alt="phone" width={400} height={800} className="xl:h-full xl:w-full" />
+        </motion.div>
+        <div className="max-w-[1440px] w-full relative">
+          Mobile mockups
+        </div>
+      </section>
     </main>
   );
 }
