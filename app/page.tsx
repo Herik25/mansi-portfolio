@@ -1255,6 +1255,432 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <section className="bg-black text-white py-16 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.4 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-[60%_1fr] gap-12 items-center"
+        >
+          {/* Image - Mobile First */}
+          <motion.div 
+            variants={fadeInItem}
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+          >
+            <Image 
+              src="/khadi-india.png" 
+              alt="Khadi India" 
+              width={612} 
+              height={540} 
+              className="w-full max-w-[550px] rounded-[48px] object-contain shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Text Content */}
+          <div className="order-2 lg:order-1 flex flex-col gap-6 md:gap-8">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.05 } 
+                } 
+              }}
+              className="font-luckiest-guy text-2xl lg:text-3xl tracking-[-1.5%] leading-tight"
+            >
+              {textToWords("KHADI INDIA – OMNI-CHANNEL EXPERIENCE MENTORSHIP", cartoonishItem)}
+            </motion.h2>
+
+            <motion.div 
+              variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+              className="flex flex-col gap-6"
+            >
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("Mentored an individual project focused on Omni-Channel Experience Design for Khadi India, where the student explored how a traditional brand can evolve within a modern, connected ecosystem. The project began with an in-depth understanding of Khadi India's existing retail outlets and digital presence. Under my guidance, the student analyzed the current user journey, identifying gaps between offline and online experiences.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("I guided the student in reimagining the experience by introducing new and integrated channels, such as enhanced digital touchpoints, in-store interactions, and seamless transitions between physical and online platforms. Through this process, the student developed a cohesive omni-channel strategy that allows users to discover, engage, and purchase across multiple touchpoints effortlessly, while preserving the brand's cultural essence and authenticity. This project reflects a strong application of strategic UX thinking, demonstrating how traditional retail systems can be transformed into connected, user-centric experiences.", fadeInItem)}
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-transparent text-black py-16 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.4 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_60%] gap-12 items-center"
+        >
+          {/* Image - Mobile First */}
+          <motion.div 
+            variants={fadeInItem}
+            className="flex justify-center"
+          >
+            <Image 
+              src="/kirana-bottle-case.png" 
+              alt="Khadi India" 
+              width={612} 
+              height={540} 
+              className="w-full max-w-[550px] rounded-[48px] object-contain shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Text Content */}
+          <div className="flex flex-col gap-6 md:gap-8">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.05 } 
+                } 
+              }}
+              className="font-luckiest-guy text-2xl lg:text-3xl tracking-[-1.5%] leading-tight"
+            >
+              {textToWords("Kirana Bottle Case – Ethnography Research Mentorship", cartoonishItem)}
+            </motion.h2>
+
+            <motion.div 
+              variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+              className="flex flex-col gap-6"
+            >
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("Mentored a group ethnography research project focused on the “Kirana Bottle Case”, where students explored the declining use of glass bottle soft drinks within local kirana store ecosystems.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("The project aimed to understand how consumer behavior, retailer practices, and cultural habits have evolved over time, impacting the relevance of traditional glass bottle usage. Under my guidance, the students conducted field visits, contextual observations, and user interviews with both shopkeepers and consumers to capture real-world insights.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("I guided them in structuring their research approach, identifying key behavioral patterns, and analyzing factors such as convenience, cost, storage, brand perception, and changing consumption trends.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("Through this ethnographic study, the students were able to uncover meaningful insights into how small retail environments are adapting to modern demands, and how traditional systems like glass bottle circulation are gradually declining within the kirana ecosystem.", fadeInItem)}
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-black text-white py-16 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.4 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-[60%_1fr] gap-12 items-center"
+        >
+          {/* Image - Mobile First */}
+          <motion.div 
+            variants={fadeInItem}
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+          >
+            <Image 
+              src="/within-skin.png" 
+              alt="Khadi India" 
+              width={612} 
+              height={540} 
+              className="w-full max-w-[550px] rounded-[48px] object-contain shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Text Content */}
+          <div className="order-2 lg:order-1 flex flex-col gap-6 md:gap-8">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.05 } 
+                } 
+              }}
+              className="font-luckiest-guy text-2xl lg:text-3xl tracking-[-1.5%] leading-tight"
+            >
+              {textToWords("Within the Skin – UX Project Mentorship", cartoonishItem)}
+            </motion.h2>
+
+            <motion.div 
+              variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+              className="flex flex-col gap-6"
+            >
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("Mentored a group project titled “Within the Skin”, where a team of two students designed a skincare-focused mobile application from scratch. The project aimed to address everyday skin concerns by helping users better understand their skin and make informed product choices.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("Under my guidance, the students navigated the complete UX process — from ideation to validation. They conceptualized an app that allows users to analyze their skin through scanning, track the products they use, and receive personalized recommendations based on their skin type and concerns.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("A strong emphasis was placed on usability testing and research validation. I guided them in using industry-relevant tools such as Optimal Workshop and UXtweak to conduct card sorting and tree testing, enabling them to structure information architecture effectively. Additionally, they performed user testing using dedicated testing platforms to gather real user feedback and refine their design decisions.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("Through this process, the students gained hands-on experience in building a user-centered product, understanding user behavior, and validating their ideas through structured research and testing methodologies.", fadeInItem)}
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-transparent text-black py-16 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.4 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_60%] gap-12 items-center"
+        >
+          {/* Image - Mobile First */}
+          <motion.div 
+            variants={fadeInItem}
+            className="flex justify-center"
+          >
+            <Image 
+              src="/ncmc.png" 
+              alt="ncmc" 
+              width={612} 
+              height={540} 
+              className="w-full max-w-[550px] rounded-[48px] object-contain shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Text Content */}
+          <div className="flex flex-col gap-6 md:gap-8">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.05 } 
+                } 
+              }}
+              className="font-luckiest-guy text-2xl lg:text-3xl tracking-[-1.5%] leading-tight"
+            >
+              {textToWords("NCMC Metro Card – User Research Study Mentorship", cartoonishItem)}
+            </motion.h2>
+
+            <motion.div 
+              variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+              className="flex flex-col gap-6"
+            >
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("Mentored a group user research study focused on the NCMC Metro Card, where students explored commuter behavior and challenges within public transport payment systems.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("The project aimed to understand how users interact with metro card systems in real-world contexts. Under my guidance, students conducted field observations, user interviews, and journey mapping to identify pain points related to usability, accessibility, and convenience.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("I guided them in analyzing experiences across multiple touchpoints, uncovering issues such as recharge difficulties, lack of awareness, fragmented journeys, and inefficiencies in usage.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("Through this process, students derived meaningful insights into commuter behavior and explored opportunities to enhance the overall transit experience through more seamless and user-friendly solutions.", fadeInItem)}
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-black text-white py-16 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.4 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-[60%_1fr] gap-12 items-center"
+        >
+          {/* Image - Mobile First */}
+          <motion.div 
+            variants={fadeInItem}
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+          >
+            <Image 
+              src="/talent-flow.png" 
+              alt="Talent Flow" 
+              width={612} 
+              height={540} 
+              className="w-full max-w-[550px] rounded-[48px] object-contain shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Text Content */}
+          <div className="order-2 lg:order-1 flex flex-col gap-6 md:gap-8">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.05 } 
+                } 
+              }}
+              className="font-luckiest-guy text-2xl lg:text-3xl tracking-[-1.5%] leading-tight"
+            >
+              {textToWords("Talent Flow – Smart Hiring ATS for India | Business UX Mentorship", cartoonishItem)}
+            </motion.h2>
+
+            <motion.div 
+              variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+              className="flex flex-col gap-6"
+            >
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("Mentored an individual project under Business UX, where the student conceptualized and designed “Talent Flow” — a Smart Hiring ATS tailored for the Indian market.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("The project focused on building a complete SaaS ecosystem from scratch, including the website, login flow, and dashboard experience, while aligning design decisions with business goals and ROI considerations.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("Under my guidance, the student explored how UX directly impacts business performance by improving efficiency, user adoption, and decision-making processes within recruitment workflows. I guided them in structuring the product with a clear understanding of user needs, business objectives, and scalable design solutions.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-[#E4E7EC] opacity-80 leading-relaxed"
+              >
+                {textToWords("The student designed an intuitive platform that simplifies hiring processes, enhances recruiter productivity, and delivers a seamless experience across touchpoints — demonstrating how thoughtful UX can drive measurable business value and competitive advantage.", fadeInItem)}
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-transparent text-black py-16 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.4 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_60%] gap-12 items-center"
+        >
+          {/* Image - Mobile First */}
+          <motion.div 
+            variants={fadeInItem}
+            className="flex justify-center"
+          >
+            <Image 
+              src="/vyapar.png" 
+              alt="vyapar" 
+              width={612} 
+              height={540} 
+              className="w-full max-w-[550px] rounded-[48px] object-contain shadow-2xl"
+            />
+          </motion.div>
+
+          {/* Text Content */}
+          <div className="flex flex-col gap-6 md:gap-8">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.05 } 
+                } 
+              }}
+              className="font-luckiest-guy text-2xl lg:text-3xl tracking-[-1.5%] leading-tight"
+            >
+              {textToWords("Vyapar SaaS – Industry-Specific Experience Design Mentorship", cartoonishItem)}
+            </motion.h2>
+
+            <motion.div 
+              variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+              className="flex flex-col gap-6"
+            >
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("Mentored an individual project under Industry-Specific Experience Design, where one of the student focused on analyzing and redesigning the Vyapar SaaS product.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("The project aimed to evaluate the usability and overall user experience of an existing business software. Under my guidance, the student conducted a heuristic evaluation, identifying key usability issues related to navigation, workflow efficiency, and interface clarity.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("I guided the student in applying UX principles to rethink and redesign critical screens, improving the overall experience for business users. This included enhancing information hierarchy, simplifying workflows, and creating more intuitive and user-friendly interfaces.", fadeInItem)}
+              </motion.p>
+              <motion.p 
+                variants={{ visible: { transition: { staggerChildren: 0.005 } } }}
+                className="font-quicksand text-base sm:text-xl tracking-[-1.5%] text-black opacity-80 leading-relaxed"
+              >
+                {textToWords("Through this process, the student gained practical exposure to evaluating real-world SaaS products and transforming insights into effective design solutions, reflecting a strong understanding of industry-specific UX challenges and improvements.", fadeInItem)}
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
     </main>
   );
 }
