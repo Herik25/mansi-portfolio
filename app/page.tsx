@@ -914,13 +914,77 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-black text-white px-4 md:px-8 relative overflow-x-hidden min-h-screen flex flex-col items-center">
-        <div className="absolute top-0 right-0 z-0 hidden md:block">
+      <section className="bg-black text-white relative overflow-hidden h-full w-full flex items-center justify-center">
+        <div className="absolute top-0 right-0 z-1 hidden md:block">
           <Image src="/mockups/main-phone-2.png" alt="phone" width={400} height={800} className="xl:h-full xl:w-full" />
         </div>
-        <div className="max-w-[1440px] w-full relative">
-          Mobile mockups
+        <div className="relative w-full h-full min-h-screen">
+          <Image 
+            src="/mockups/mobile-mock-up-bg.png" 
+            alt="Mobile Mockup Gallery" 
+            fill 
+            className="object-cover object-center" 
+            priority
+          />
         </div>
+      </section>
+
+      <section className="bg-transparent text-black pt-16 md:pt-32 px-4 md:px-8 relative overflow-hidden flex flex-col items-center">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.8 } }
+          }}
+          className="flex flex-col flex-1 justify-between gap-8 h-full relative z-1"
+        >
+          <div className="font-quicksand text-lg sm:text-2xl tracking-[-1.5%] flex flex-col gap-6 max-w-[1440px] mx-auto w-full">
+            <motion.h2 
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.1 } 
+                } 
+              }}
+              className="text-3xl md:text-5xl font-quicksand font-bold tracking-[-1.5%]"
+            >
+              {textToWords("Leobrain – SaaS Website”", cartoonishItem)}
+            </motion.h2>
+            
+            <motion.div 
+              variants={{ 
+                visible: { transition: { staggerChildren: 0.6 } } 
+              }}
+              className="flex flex-col gap-6 xl:max-w-[67%]"
+            >
+              <motion.p variants={{ visible: { transition: { staggerChildren: 0.01 } } }}>
+                {textToWords("Leobrain is an AI-driven SaaS platform designed to streamline the hiring and recruitment process with an advanced Applicant Tracking System (ATS) and additional business solutions. The platform helps recruiters, HR teams, and businesses automate hiring, enhance decision-making, and improve efficiency.", fadeInItem)}
+              </motion.p>
+              <motion.p variants={{ visible: { transition: { staggerChildren: 0.01 } } }}>
+                {textToWords("The Leobrain website offers both Light and Dark Mode, ensuring a comfortable and personalized browsing experience for all users.", fadeInItem)}
+              </motion.p>
+              <motion.p variants={{ visible: { transition: { staggerChildren: 0.01 } } }}>
+                {textToWords("🌞 Light Mode – Clean, modern, and visually appealing for well-lit environments.", fadeInItem)} <br />
+                {textToWords("🌙 Dark Mode – Reduces eye strain and enhances readability, ideal for low-light settings.", fadeInItem)}
+              </motion.p>
+            </motion.div>
+          </div>
+          <div className="flex justify-between items-end w-full mt-16">
+            <div className="relative h-full w-full">
+              <Image 
+                src="/leobrain/leobrain-group-1.svg" 
+                alt="Leobrain" 
+                width={1600} 
+                height={1300} 
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </motion.div>
+        <div className="absolute bottom-0 sm:bottom-[10%] xl:bottom-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] md:w-[60%] md:h-[60%] bg-[#FDC55E99] rounded-full blur-[100px] md:blur-[200px] pointer-events-none z-0" />
       </section>
 
       <section className="bg-[#0e0e0e] text-white pt-16 md:pt-32 relative overflow-hidden flex flex-col items-center">
@@ -964,12 +1028,10 @@ export default function Home() {
                     transition: { type: "spring", stiffness: 100, damping: 20 }
                   }
                 }}
-                className="aspect-video bg-[#1a1a1a] rounded-xl border border-white/5 overflow-hidden shadow-2xl relative group hover:border-white/20 transition-colors"
+                className="aspect-video overflow-hidden shadow-2xl relative group"
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
               >
-                <div className="w-full h-full flex items-center justify-center text-white/10 font-black text-xl tracking-widest uppercase">
-                  Screenshot {i + 1}
-                </div>
+                <Image src={`/leobrain/leobrain-${i + 1}.png`} alt="leobrain" width={300} height={300} className="w-full h-full object-cover" />
               </motion.div>
             ))}
           </motion.div>
