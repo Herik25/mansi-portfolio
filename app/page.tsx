@@ -91,17 +91,6 @@ export default function Home() {
     </motion.span>
   ));
 
-  const textToChars = (text: string, variants: Variants = typewriterVariants) => text.split("").map((char, index) => (
-    <motion.span 
-      key={index} 
-      custom={index} 
-      variants={variants}
-      className="inline-block whitespace-pre"
-    >
-      {char}
-    </motion.span>
-  ));
-
   const projects = [
     { 
       title: "SNEAKART", 
@@ -435,30 +424,37 @@ export default function Home() {
       </section>
 
       <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col px-4 md:px-8">
-        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.6 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32"
+        >
           <motion.h2 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }}
+            variants={{ 
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { staggerChildren: 0.1 } 
+              } 
+            }}
             className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
           >
-            {textToWords("SKILLS: “SUPERPOWERS UNLOCKED”", cartoonishVariants)}
+            {textToWords("SKILLS: “SUPERPOWERS UNLOCKED”", cartoonishItem)}
           </motion.h2>
           <motion.p 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }}
+            variants={{ 
+              visible: { transition: { staggerChildren: 0.01 } } 
+            }}
             className="mt-4 font-quicksand text-lg md:text-2xl tracking-[-1.5%]"
           >
-            {textToChars("Every creative mind has its unique abilities. Here are the skills that power my design journey:", {
-              hidden: { opacity: 0 },
-              visible: (i: number) => ({
-                opacity: 1,
-                transition: { delay: i * 0.03 }
-              })
-            })}
+            {textToWords("Every creative mind has its unique abilities. Here are the skills that power my design journey:", fadeInItem)}
           </motion.p>
-        </div>
+        </motion.div>
 
         <div className="flex-1 relative mt-10 h-full w-full max-w-[1440px] mx-auto overflow-visible">
           {/* Green Glow */}
@@ -541,30 +537,37 @@ export default function Home() {
       </section>
       
       <section className="bg-[#FDC55E] text-black relative overflow-hidden flex flex-col py-16 md:py-32 px-4 md:px-8">
-        <div className="max-w-[1440px] mx-auto w-full relative z-20">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.6 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-20"
+        >
           <motion.h2 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }}
+            variants={{ 
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { staggerChildren: 0.1 } 
+              } 
+            }}
             className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
           >
-            {textToWords("Experience: “The Quest Begins”", cartoonishVariants)}
+            {textToWords("Experience: “The Quest Begins”", cartoonishItem)}
           </motion.h2>
           <motion.p 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }}
+            variants={{ 
+              visible: { transition: { staggerChildren: 0.01 } } 
+            }}
             className="mt-4 font-quicksand text-lg md:text-2xl tracking-[-1.5%] max-w-3xl"
           >
-            {textToChars("Every journey is shaped by experiences that refine skills and creativity. Here’s how my path in UI/UX and design has evolved", {
-              hidden: { opacity: 0 },
-              visible: (i: number) => ({
-                opacity: 1,
-                transition: { delay: i * 0.03 }
-              })
-            })}
+            {textToWords("Every journey is shaped by experiences that refine skills and creativity. Here’s how my path in UI/UX and design has evolved", fadeInItem)}
           </motion.p>
-        </div>
+        </motion.div>
 
         <div className="flex-1 relative mt-12 md:mt-20 w-full max-w-[1440px] mx-auto z-10 px-4">
           <div className="flex flex-col gap-6 md:gap-12">
@@ -670,21 +673,33 @@ export default function Home() {
       </section>
 
       <section className="bg-black text-white relative overflow-hidden flex flex-col px-4 md:px-8 pb-40">
-        <div className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32 md:grid md:grid-cols-[1fr_auto] gap-10">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.6 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-20 pt-16 md:pt-32 md:grid md:grid-cols-[1fr_auto] gap-10"
+        >
           <div>
             <motion.h2 
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true }}
+              variants={{ 
+                hidden: { opacity: 0, y: 20 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { staggerChildren: 0.1 } 
+                } 
+              }}
               className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
             >
-              {textToWords(`Research & Projects: "The Discovery Chronicles"`, cartoonishVariants)}
+              {textToWords(`Research & Projects: "The Discovery Chronicles"`, cartoonishItem)}
             </motion.h2>
             <motion.p 
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true }}
-              variants={{ visible: { transition: { staggerChildren: 0.01 } } }}
+              variants={{ 
+                visible: { transition: { staggerChildren: 0.01 } } 
+              }}
               className="mt-4 font-quicksand text-lg md:text-2xl tracking-[-1.5%]"
             >
               {textToWords("Every designer’s journey is a mix of curiosity, creativity… and a little bit of Netflix & chill 🎬 As someone who loves diving into stories on Netflix, I naturally developed an eye for experiences—how they flow, engage, and keep users hooked. That same curiosity translated into my design journey, where every project became an episode of exploration. From understanding user behavior to crafting seamless digital experiences, these research studies and projects shaped my perspective on UI/UX—teaching me how to design journeys that people don’t just use, but truly enjoy. 🚀", fadeInItem)}
@@ -704,7 +719,7 @@ export default function Home() {
             height={188}
             className="z-0 w-full max-w-[40vw] lg:max-w-lg xl:max-w-xl mx-auto h-full opacity-60 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 max-h-[20%] lg:max-h-[40%]"
           />
-        </div>
+        </motion.div>
       </section>
 
       <section className="bg-black text-white min-h-screen relative overflow-hidden flex flex-col py-16">
@@ -812,7 +827,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-black text-white pt-16 md:pt-32 px-4 md:px-8 relative overflow-hidden">
+      <section className="bg-[#0e0e0e] text-white px-4 md:px-8 relative overflow-hidden">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -823,7 +838,7 @@ export default function Home() {
           className="max-w-[1440px] mx-auto w-full relative z-10"
         >
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_500px] gap-12 items-start">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 pt-16 md:pt-32">
               <motion.h2 
                 variants={{ 
                   hidden: { opacity: 0, y: 20 },
@@ -835,7 +850,7 @@ export default function Home() {
                 }}
                 className="font-luckiest-guy text-3xl sm:text-5xl tracking-[-1.5%]"
               >
-                {textToWords("PROFESSIONAL PROJECTS: \"DESIGN IN ACTION\"", cartoonishVariants)}
+                {textToWords("PROFESSIONAL PROJECTS: \"DESIGN IN ACTION\"", cartoonishItem)}
               </motion.h2>
               
               <motion.div 
@@ -877,11 +892,11 @@ export default function Home() {
 
             <motion.div 
               variants={fadeInItem}
-              className="absolute top-0 right-0 lg:relative flex justify-end h-[400px] -z-1 translate-x-1/3 -translate-y-1/3 lg:translate-x-0 lg:translate-y-0"
+              className="absolute top-0 right-0 lg:relative flex justify-end h-[400px] -z-1 translate-x-16 lg:translate-x-0"
             >
               {/* Avatar Ring */}
-              <div className="relative w-64 h-64">
-                <div className="absolute inset-0 opacity-50 lg:opacity-100 bg-[#A0C4FF] rounded-full p-2 border-4 border-white/20"></div>
+              <div className="relative">
+                <Image src={"/eat/eat-pfp.png"} alt="eat" width={334} height={334} className="w-64 h-64 md:w-full md:h-full object-contain opacity-50 lg:opacity-100" />
               </div>
             </motion.div>
           </div>
@@ -894,31 +909,21 @@ export default function Home() {
             <Image src="/crab.png" alt="crab" width={344} height={344} />
           </motion.div>
         </motion.div>
-        <motion.div 
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          className="absolute bottom-0 right-0 z-0 hidden md:block"
-        >
+        <div className="absolute bottom-0 right-0 z-0 hidden md:block">
           <Image src="/mockups/main-phone.png" alt="phone" width={400} height={800} className="xl:h-full xl:w-full" />
-        </motion.div>
+        </div>
       </section>
 
-      <section className="bg-[#0e0e0e] text-white px-4 md:px-8 relative overflow-x-hidden min-h-screen flex flex-col items-center">
-        <motion.div 
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          className="absolute top-0 right-0 z-0 hidden md:block"
-        >
+      <section className="bg-black text-white px-4 md:px-8 relative overflow-x-hidden min-h-screen flex flex-col items-center">
+        <div className="absolute top-0 right-0 z-0 hidden md:block">
           <Image src="/mockups/main-phone-2.png" alt="phone" width={400} height={800} className="xl:h-full xl:w-full" />
-        </motion.div>
+        </div>
         <div className="max-w-[1440px] w-full relative">
           Mobile mockups
         </div>
       </section>
 
-      <section className="bg-black text-white pt-16 md:pt-32 relative overflow-hidden flex flex-col items-center">
+      <section className="bg-[#0e0e0e] text-white pt-16 md:pt-32 relative overflow-hidden flex flex-col items-center">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -1004,7 +1009,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0e0e0e] text-white pt-16 md:pt-32 px-4 md:px-8 relative overflow-hidden">
+      <section className="bg-black text-white pt-16 md:pt-32 px-4 md:px-8 relative overflow-hidden">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -1053,7 +1058,7 @@ export default function Home() {
               {/* Bean Row */}
               <motion.div 
                 variants={{ 
-                  visible: { transition: { staggerChildren: 0.5 } } 
+                  visible: { transition: { staggerChildren: 0.1 } } 
                 }}
                 className="flex-wrap gap-6 mt-6 hidden sm:flex"
               >
@@ -1093,16 +1098,29 @@ export default function Home() {
       </section>
 
       <section className="bg-transparent text-black relative overflow-hidden flex flex-col pt-16 md:pt-32 px-4 md:px-8 max-w-[1440px] md:mx-auto">
-        <div className="max-w-[1440px] mx-auto w-full relative z-20">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.8 } }
+          }}
+          className="max-w-[1440px] mx-auto w-full relative z-20"
+        >
           <motion.h2 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }}
+            variants={{ 
+              hidden: { opacity: 0, y: 20 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { staggerChildren: 0.1 } 
+              } 
+            }}
             className="text-3xl md:text-5xl font-luckiest-guy tracking-[-1.5%]"
           >
-            {textToWords("Teaching Impact", cartoonishVariants)}
+            {textToWords("Teaching Impact", cartoonishItem)}
           </motion.h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-[70%_1fr] gap-4">
           <div className="relative mt-6 w-full z-10 px-4">
