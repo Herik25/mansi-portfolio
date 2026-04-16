@@ -1681,10 +1681,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      <section className="bg-black text-white py-16 md:py-32 px-4 md:px-8 relative overflow-hidden">
-        Footer
-      </section>
     </main>
   );
 }
